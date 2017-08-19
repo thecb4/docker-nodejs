@@ -5,10 +5,15 @@ FROM node:6.11.2
 
 # RUN useradd -d /home/thecb4 -m -s /bin/bash thecb4 && echo "thecb4:thecb4" | chpasswd && adduser thecb4 sudo
 
-ENV APP_USER
-ENV GH_TOKEN
-ENV APP_NAME
-ENV GH_REPO
+ARG ARG_APP_USER
+ARG ARG_GH_TOKEN
+ARG ARG_APP_NAME
+ARG ARG_GH_REPO
+
+ENV APP_USER $ARG_APP_USER
+ENV GH_TOKEN $ARG_GH_TOKEN
+ENV APP_NAME $ARG_APP_NAME
+ENV GH_REPO $ARG_GH_REPO
 
 RUN groupadd $APP_USER
 RUN useradd $APP_USER -s /bin/bash -m -g $APP_USER -G sudo &&  echo '$APP_USER:$APP_USER' | chpasswd
