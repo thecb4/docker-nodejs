@@ -6,4 +6,4 @@ VOLUME /app/public/uploads
 
 # RUN echo "admin" | node app.js apostrophe-users:add admin admin
 
-CMD npm start
+CMD ./scripts/startup
